@@ -1,0 +1,30 @@
+---
+layout: default
+title: Blog
+---
+
+<section style="padding: 40px 0;">
+  <h1 style="margin-bottom: 32px;">Latest Posts</h1>
+
+  <div class="post-list">
+    {% for post in site.posts %}
+    <a href="{{ post.url }}" class="post-card">
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.description | default: post.excerpt | strip_html | truncate: 160 }}</p>
+      <div class="post-meta">
+        <span>{{ post.date | date: "%B %d, %Y" }}</span>
+        {% if post.tags %}
+        <span>{{ post.tags | join: ", " }}</span>
+        {% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  {% if site.posts.size == 0 %}
+  <div class="empty-state">
+    <h3>No posts yet</h3>
+    <p>Run the AutoSEO pipeline to generate your first articles.</p>
+  </div>
+  {% endif %}
+</section>
