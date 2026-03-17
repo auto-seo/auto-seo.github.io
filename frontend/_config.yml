@@ -1,0 +1,38 @@
+title: AutoSEO Engine
+description: Automated SEO content generation, deployment, and backlink management
+baseurl: ""
+url: ""
+permalink: /blog/:slug/
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:slug/
+
+# Defaults
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
+
+# SEO
+twitter:
+  card: summary
+social:
+  name: AutoSEO Engine
+
+# Exclude
+exclude:
+  - node_modules
+  - README.md
+  - package.json
+  - package-lock.json
